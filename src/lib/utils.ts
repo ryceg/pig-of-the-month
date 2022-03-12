@@ -38,3 +38,9 @@ export function values<T>(object: T): T[keyof T][] {
 export function assign<T, S>(target: T, source: S): asserts target is T & S {
   Object.assign(target, source)
 }
+
+export const toUpperFirst = function <T extends string>(s: T): T {
+  if (typeof s !== 'string') throw new Error(`toUpperFirst: ${s} is not a string.`)
+  if (s.length === 0) return s
+  return s.charAt(0).toUpperCase() + s.slice(1) as T
+}
