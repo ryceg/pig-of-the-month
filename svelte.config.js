@@ -1,6 +1,6 @@
-import adapter from '@sveltejs/adapter-auto';
-import path from 'path';
-import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-auto'
+import path from 'path'
+import preprocess from 'svelte-preprocess'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,6 +14,12 @@ const config = {
 			// ssr: {
 			// 	noExternal: Object.keys(pkg.dependencies || {}),
 			// },
+			server: {
+				fs: {
+					// Allow serving files from one level up to the project root
+					allow: ['..']
+				}
+			},
 			resolve: {
 				alias: {
 					// these are the aliases and paths to them
@@ -27,6 +33,6 @@ const config = {
 			}
 		}
 	}
-};
+}
 
-export default config;
+export default config
